@@ -613,28 +613,6 @@ $(document).ready(function () {
     mymap.addLayer(markersCluStip);
     mymap.addLayer(markersCluKa);
 
-
-
-    /* test clic=coordonnées
-     **********************************************************************************  */
-    /*function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-    }
-
-    mymap.on('click', onMapClick);*/
-
-    /*var popup = L.popup();
-
-    function onMapClick(e) {
-        popup
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
-            .openOn(mymap);
-    }
-
-    mymap.on('click', onMapClick);*/
-
-
 });
 
 /* if one audio is played, the others stop 
@@ -650,15 +628,7 @@ document.addEventListener('play', function (e) {
 
 /* if the modal is left, audio stop 
  **********************************************************************************  */
-/* document.addEventListener('hide.bs.modal', function(e){
-    var audios = document.getElementsByTagName('video');
-    audios.pause();
 
-}, ); 
-
-$('#modalVolhan').on('hidden.bs.modal', function (e) {
-    $('#modalVolhan video').pause();
-}) */
 
 $('.modal').on('hide.bs.modal', function () { 
     $('video').each(function () {
@@ -666,9 +636,4 @@ $('.modal').on('hide.bs.modal', function () {
     });
 })
 
-/*
-$('#modalVolhan div.modal-header button').on('click', function(){
-    $('#modalVolhan').modal('hide');
-})
-*/
 
