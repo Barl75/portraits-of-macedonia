@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Portraits of Macedonia</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Portraits of Macedonia is a website and a documentary project about public places through citizens point of views. It aims to sketch a wide, complex and positive view of Macedonia and its citizens, in all their diversity. Everyone can participate! Accessible in EN, FR and MK." />
+    <meta name="keywords" content="Portraits, Portraits de Macédoine, portrait, Macedonia, Macédoine, Macedonian, Macédonien, Erasmus+, SVE, EVS, interview, interactive, map, carte, intéractive, public, place, lieux, publics, documentary, documentaire, audio">
+    <meta name="author" content="Sarah Froment">
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="images/squarelogopom.png">
+
+    <!-- GoogleFont -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+    <!-- Font Awesome 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script> -->
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+    <!-- Leaflet Cluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css">
+    <!-- Leaflet Cluster CSS bis, not needed if you use your own iconCreateFunction instead of the default one -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Modal PROJECT -->
+    <div id="modalInfo" class="modal fade" role="dialog" aria-labelledby="infoproject">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoproject">Project</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body ">
+                    <!-- Project texts -->
+                    <div class="row text-justify">
+                        <div class="col-12" id="tabLangProject">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="en-tab-pr" data-toggle="tab" href="#en-pr" role="tab" aria-controls="en-pr" aria-selected="true">English</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="mk-tab-pr" data-toggle="tab" href="#mk-pr" role="tab" aria-controls="mk-pr" aria-selected="false">Македонски</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="fr-tab-pr" data-toggle="tab" href="#fr-pr" role="tab" aria-controls="fr-pr" aria-selected="false">Français</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent-pr">
+                                <div class="tab-pane fade show active" id="en-pr" role="tabpanel" aria-labelledby="en-tab-pr">
+                                    <p class="biggertext">A portrait can be made of dots, lines, colours or words aggregated in a unique way to represent someone, something. But it will always be just one of the thousands of possibilities. This map looks for this unique and multiple portrait of Macedonia and its citizens.</p>
+                                    <p class="biggertext">Portraits of Macedonia is a website and a documentary project about public places through citizens point of views. It aims to sketch a wide, complex and positive view of Macedonia and its citizens, in all their diversity.<br>Interviews, audio tracks and photographs, are broadcasted on this interactive map where everybody can contribute and help to enrich the project.</p>
+                                    <hr>
+                                    <p>The project was implemented as part of a European Voluntary Service within ALDA Skopje, by Sarah Froment and Corentin Praud.</p>
+                                    <ul class="creditlist">
+                                        <li><span class="bold">Web development &amp; art direction:</span> Sarah Froment</li>
+                                        <li><span class="bold">Sound Recording and Photography:</span> Corentin Praud</li>
+                                        <li><span class="bold">Editing:</span> Sarah Froment &amp; Corentin Praud</li>
+                                        <li><span class="bold">Macedonian translation:</span> thanks to Ana Velkovska, Ana-Marija Karadjovska, Anica Dimovska and Dragana Petrushevska.</li>
+                                        <li>Special thanks to Anica for her precious help.</li>
+                                    </ul>
+                                    <p class="smallertext"><em>ALDA – The European Association for Local Democracy, is dedicated to the promotion of good governance and citizen participation at the local level. ALDA focuses on activities facilitating cooperation between local authorities and civil society. ALDA is a membership based organisation gathering more than 250 members (including local authorities, associations of local authorities, and civil society organisations) coming from more than 40 countries.<br>More information about ALDA: <a href="http://www.alda-europe.eu" target="_blank">http://www.alda-europe.eu</a></em></p>
+                                    <p class="smallertext text-align">This project is funded by the European Union through Erasmus + program. Its content does not reflect the official opinion of the European Union.</p>
+                                </div>
+                                <div class="tab-pane fade" id="mk-pr" role="tabpanel" aria-labelledby="mk-tab-pr">
+                                    <p class="biggertext">Портрет може да се направи од точки, линии, бои или зборови подредени на уникатен начин за да претстават некого, нешто. Но секогаш ќе биде само една од илјадниците можности. Оваа мапа претставува уникатен и множински портрет од Македонија и граѓаните.</p>
+                                    <p class="biggertext">„Портрети од Македонија“ е интернет-страница и документарен проект за јавните места видени низ очите на граѓаните. Има цел да нацрта широка, комплексна и позитивна слика од Македонија и граѓаните, со сите нивни поединечности. <br>Интервјуа, аудио-снимки и фотографии се претставени на интерактивна мапа каде секој може да придонесе и да помогне во збогатувањето на проектот.</p>
+                                    <hr>
+                                    <p>Проектот беше спроведен како дел од Европскиот Волонтерски Сервис во АЛДА Скопје, од страна на Сара Фроман и Корентан Про.</p>
+                                    <ul class="creditlist">
+                                        <li><span class="bold">Креирање на интернет-страница и уметнички насоки:</span> Сара Фроман</li>
+                                        <li><span class="bold">Снимање звук и фотографија:</span> Корентан Про</li>
+                                        <li><span class="bold">Editing:</span> Сара Фроман и Корентан Про</li>
+                                        <li><span class="bold">Превод на македонски:</span> благодарност до Ана Велковска, Ана-Марија Карадјовска, Аница Димовска и Драгана Петрушевска</li>
+                                        <li>Специјална благодарност до Аница за нејзината значителна помош.</li>
+                                    </ul>
+                                    <p class="smallertext"><em>АЛДА - Европската асоцијација за локална демократија, е посветена на промовирањето на доброто раководење и граѓанското учество на локално ниво. АЛДА се фокусира на активностите кои ја поттикнуваат соработката помеѓу локалните власти и граѓанското општество. АЛДА е организација која има мрежа од над 250 членови (меѓу кои локални власти, здруженија на локални власти и граѓански организации) кои доаѓаат од повеќе од 40 земји.<br>Повеќе информации за АЛДА: <a href="http://www.alda-europe.eu" target="_blank">http://www.alda-europe.eu</a></em></p>
+                                    <p class="smallertext text-align">Проектот е финансиран од Европската Унија преку програмата „Еразмус +“. Содржината не отсликува официјален став на Европската Унија.
+                                    </p>
+                                </div>
+                                <div class="tab-pane fade" id="fr-pr" role="tabpanel" aria-labelledby="fr-tab-pr">
+                                    <p class="biggertext">Un portrait peut être fait de points, de lignes, de couleurs ou de mots agrégés d'une unique manière pour représenter quelqu'un, quelque chose. Mais ce ne sera toujours qu'un choix parmi les milliers de possibilités. Cette carte est à la recherche de ce portrait, unique et multiple, de la Macédoine et de ses citoyens.</p>
+                                    <p class="biggertext">Portraits de Macédoine est un site web et un projet documentaire : les lieux publics vus par le prisme des citoyens. Il cherche à esquisser une vision large, complexe et positive de la Macédoine et de ses citoyens, dans toute leur diversité. <br>Les interviews, pistes audios et photographies, sont diffusées sur cette carte interactive où chacun peut contribuer et aider à enrichir le projet.</p>
+                                    <hr>
+                                    <p>Ce projet a été élaboré dans le cadre d'un Service Volontaire Européen au sein d'ALDA Skopje, par Sarah Froment et Corentin Praud.</p>
+                                    <ul class="creditlist">
+                                        <li><span class="bold">Développement web &amp; direction artistique :</span> Sarah Froment</li>
+                                        <li><span class="bold">Prise de son et photographie :</span> Corentin Praud</li>
+                                        <li><span class="bold">Montage :</span> Sarah Froment &amp; Corentin Praud</li>
+                                        <li><span class="bold">Traduction macédonienne :</span> merci à Ana Velkovska, Ana-Marija Karadjovska, Anica Dimovska et Dragana Petrushevska</li>
+                                        <li>Remerciements particuliers à Anica pour son aide précieuse.</li>
+                                    </ul>
+                                    <p class="smallertext"><em>L’Association  européenne  pour  la  démocratie  locale  (ALDA)  est  une  organisation  dédiée  à  la  promotion  de  la  bonne  gouvernance et de la participation citoyenne au niveau local. ALDA vise notamment à faciliter la coopération entre les autorités locales et la société civile dans l’Union européenne et son voisinage. <br>ALDA est  une  organisation  associative  qui  compte  plus  de  250  membres,  parmi  lesquels  des  autorités  locales,  des  associations  d’autorités  locales  et  des  organisations  non-gouvernementales,  dans  plus  de  40  pays.<br>Plus d'informations à propos d'ALDA : <a href="http://www.alda-europe.eu" target="_blank">http://www.alda-europe.eu</a></em></p>
+                                    <p class="smallertext text-align">Ce projet est financé par l'Union européenne dans le cadre du programme Erasmus +. Son contenu ne reflète pas l'opinion officielle de l'Union européenne.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer -->
+                    <div class="row justify-content-center">
+                        <div class="row col-12 footer justify-content-around whitebg">
+                            <div class="col-4 text-center"><img src="images/logo_ALDA.jpg" alt="logo ALDA"></div>
+                            <div class="col-4 text-center"><img src="images/logo_Erasmus+.png" alt="logo Erasmus+" class=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Participate -->
+    <div id="modalParticipate" class="modal fade" role="dialog" aria-labelledby="participate">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="participate">Participate</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- Presentation text -->
+                    <div class="row text-justify">
+                        <div class="col-12" id="tabLang">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="true">English</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="mk-tab" data-toggle="tab" href="#mk" role="tab" aria-controls="mk" aria-selected="false">Македонски</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="fr-tab" data-toggle="tab" href="#fr" role="tab" aria-controls="fr" aria-selected="false">Français</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="en" role="tabpanel" aria-labelledby="en-tab">
+                                    <p>Would you like to share a personal story related to a public place you love, that is close to your heart? So don't wait any longer! Send us an email and we will add your place to the map* to create a richer portrait of Macedonia.</p>
+                                    <p class="bold">Send us an email, at <a href="mailto:portraitsofmacedonia@gmail.com"> portraitsofmacedonia@gmail.com</a> with:</p>
+                                    <ul>
+                                        <li>the name of the public place you choose</li>
+                                        <li>its address and city</li>
+                                        <li>your first name</li>
+                                        <li>your message (why did you choose this place, a related story about it...)</li>
+                                    </ul>
+                                    <p>And optional but welcome:</p>
+                                    <ul>
+                                        <li>a picture of the place</li>
+                                        <li>another picture, with you at the place</li>
+                                        <li>your last name</li>
+                                    </ul>
+                                    <br>
+                                    <p class="smallertext">*Content subject to validation of appropriate content.</p>
+                                </div>
+                                <div class="tab-pane fade" id="mk" role="tabpanel" aria-labelledby="mk-tab">
+                                    <p>Би сакале да споделите лична приказна за место кое го сакате, кое ви е близу до срцето? Не чекајте повеќе! Испратете ни електронска пошта со следните податоци и ние ќе го додадеме на мапата* за да создадеме побогат портрет од Македонија.
+                                    </p>
+                                    <p class="bold">Испратете ни електронска пошта, на<a href="mailto:portraitsofmacedonia@gmail.com">portraitsofmacedonia@gmail.com</a> со:</p>
+                                    <ul>
+                                        <li>името на јавното место кое го одбравте</li>
+                                        <li>адресата и градот на местото</li>
+                                        <li>Вашето прво име</li>
+                                        <li>Вашата порака (зошто го одбравте ова место, приказна за него...)</li>
+                                    </ul>
+                                    <p>и незадолжително, но добредојдено:</p>
+                                    <ul>
+                                        <li>фотографија од местото</li>
+                                        <li>фотографија од вас на местото</li>
+                                        <li>Вашето презиме</li>
+                                    </ul>
+                                    <br>
+                                    <p class="smallertext">*Содржината може да подложи на одобрување пред да биде објавена.</p>
+                                </div>
+                                <div class="tab-pane fade" id="fr" role="tabpanel" aria-labelledby="fr-tab">
+                                    <p>Vous aimeriez partager une histoire personnelle liée à un lieu public que vous aimez et qui vous tient à cœur ? Alors n'attendez plus ! Envoyez-nous un e-mail et nous ajouterons votre lieu à la carte* pour créer un portrait plus riche de Macédoine.</p>
+                                    <p class="bold">Envoyez-nous un e-mail, à <a href="mailto:portraitsofmacedonia@gmail.com">portraitsofmacedonia@gmail.com</a> avec :</p>
+                                    <ul>
+                                        <li>le nom du lieu public choisi</li>
+                                        <li>son adresse et nom de la ville</li>
+                                        <li>votre prénom</li>
+                                        <li>votre message (pourquoi ce lieu, une histoire liée...)</li>
+                                    </ul>
+                                    <p>Et optionel mais apprécié :</p>
+                                    <ul>
+                                        <li>une photo du lieu</li>
+                                        <li>une autre photo, avec vous dans le lieu</li>
+                                        <li>votre nom de famille</li>
+                                    </ul>
+                                    <br>
+                                    <p class="smallertext">*Sous réserve de validation d'un contenu approprié.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Volhan -->
+    <div id="modalVolhan" class="modal fade" role="dialog" aria-labelledby="infoVolhan">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoVolhan">VOLHAN</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-volhan" data-toggle="tab" href="#nav-part1-volhan" role="tab" aria-controls="nav-part1-volhan" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-volhan" data-toggle="tab" href="#nav-part2-volhan" role="tab" aria-controls="nav-part2-volhan" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-volhan" data-toggle="tab" href="#nav-part3-volhan" role="tab" aria-controls="nav-part3-volhan" aria-selected="false">Part 3</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-volhan" role="tabpanel" aria-labelledby="nav-part1-tab-volhan">
+                                <h4>Skate Park at the Francophonie Park</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/volhan/volhan1.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/volhan/v1en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/volhan/v1fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/volhan/v1mk.vtt">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-volhan" role="tabpanel" aria-labelledby="nav-part2-tab-volhan">
+                                <h4>Skate culture in Macedonia</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/volhan/volhan2.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/volhan/v2en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/volhan/v2fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/volhan/v2mk.vtt">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-volhan" role="tabpanel" aria-labelledby="nav-part3-tab-volhan">
+                                <h4>In 50 years, I hope</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/volhan/volhan3.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/volhan/v3en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/volhan/v3fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/volhan/v3mk.vtt">
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitles available in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselV" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselV" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselV" data-slide-to="1"></li>
+                            <li data-target="#carouselV" data-slide-to="2"></li>
+                            <li data-target="#carouselV" data-slide-to="3"></li>
+                            <li data-target="#carouselV" data-slide-to="4"></li>
+                            <li data-target="#carouselV" data-slide-to="5"></li>
+                            <li data-target="#carouselV" data-slide-to="6"></li>
+                            <li data-target="#carouselV" data-slide-to="7"></li>
+                            <li data-target="#carouselV" data-slide-to="8"></li>
+                            <li data-target="#carouselV" data-slide-to="9"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/volhan/v1.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v2.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v3.jpg" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v4.jpg" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v5.jpg" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v6.jpg" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v7.jpg" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v8.jpg" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v9.jpg" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/volhan/v10.jpg" alt="Tenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselV" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselV" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Eleonora -->
+    <div id="modalEleonora" class="modal fade" role="dialog" aria-labelledby="infoEleonora">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoEleonora">ELEONORA</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-eleonora" data-toggle="tab" href="#nav-part1-eleonora" role="tab" aria-controls="nav-part1-eleonora" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-eleonora" data-toggle="tab" href="#nav-part2-eleonora" role="tab" aria-controls="nav-part2-eleonora" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-eleonora" data-toggle="tab" href="#nav-part3-eleonora" role="tab" aria-controls="nav-part3-eleonora" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-eleonora" data-toggle="tab" href="#nav-part4-eleonora" role="tab" aria-controls="nav-part4-eleonora" aria-selected="false">Part 4</a>
+                            <a class="nav-item nav-link" id="nav-part5-tab-eleonora" data-toggle="tab" href="#nav-part5-eleonora" role="tab" aria-controls="nav-part5-eleonora" aria-selected="false">Part 5</a>
+                            <a class="nav-item nav-link" id="nav-part6-tab-eleonora" data-toggle="tab" href="#nav-part6-eleonora" role="tab" aria-controls="nav-part6-eleonora" aria-selected="false">Part 6</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-eleonora" role="tabpanel" aria-labelledby="nav-part1-tab-eleonora">
+                                <h4>Gallery 7</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora1.mp3">
+                                  <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-eleonora" role="tabpanel" aria-labelledby="nav-part2-tab-eleonora">
+                                <h4>Group Zero and cultural life</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-eleonora" role="tabpanel" aria-labelledby="nav-part3-tab-eleonora">
+                                <h4>Too much politics</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-eleonora" role="tabpanel" aria-labelledby="nav-part4-tab-eleonora">
+                                <h4>Youth in action</h4>
+                                <video controlsList="nodownload" controls preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part5-eleonora" role="tabpanel" aria-labelledby="nav-part5-tab-eleonora">
+                                <h4>Advocacy for an open society</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora5.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part6-eleonora" role="tabpanel" aria-labelledby="nav-part6-tab-eleonora">
+                                <h4>Re-inventing Skopje</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/eleonora/eleonora6.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselEleonora" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselEleonora" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="1"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="2"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="3"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="4"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="5"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="6"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="7"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="8"></li>
+                            <li data-target="#carouselEleonora" data-slide-to="9"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/eleonora/e1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/eleonora/e10.JPG" alt="Tenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselEleonora" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselEleonora" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Robert -->
+    <div id="modalRobert" class="modal fade" role="dialog" aria-labelledby="infoRobert">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoRobert">Robert</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-robert" data-toggle="tab" href="#nav-part1-robert" role="tab" aria-controls="nav-part1-robert" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-robert" data-toggle="tab" href="#nav-part2-robert" role="tab" aria-controls="nav-part2-robert" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-robert" data-toggle="tab" href="#nav-part3-robert" role="tab" aria-controls="nav-part3-robert" aria-selected="false">Bonus part</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-robert" role="tabpanel" aria-labelledby="nav-part1-tab-robert">
+                                <h4>Saint Spas Church</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/robert/robert1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-robert" role="tabpanel" aria-labelledby="nav-part2-tab-robert">
+                                <h4>Cultural public places</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/robert/robert2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-robert" role="tabpanel" aria-labelledby="nav-part3-tab-robert">
+                                <h4>Bonus: Sound visit of the church by Robertino</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/robert/robert3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselRobert" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselRobert" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselRobert" data-slide-to="1"></li>
+                            <li data-target="#carouselRobert" data-slide-to="2"></li>
+                            <li data-target="#carouselRobert" data-slide-to="3"></li>
+                            <li data-target="#carouselRobert" data-slide-to="4"></li>
+                            <li data-target="#carouselRobert" data-slide-to="5"></li>
+                            <li data-target="#carouselRobert" data-slide-to="6"></li>
+                            <li data-target="#carouselRobert" data-slide-to="7"></li>
+                            <li data-target="#carouselRobert" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/robert/r1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/robert/r9.JPG" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselRobert" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselRobert" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Shqipe -->
+    <div id="modalShqipe" class="modal fade" role="dialog" aria-labelledby="infoShqipe">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoShqipe">SHQIPE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-shqipe" data-toggle="tab" href="#nav-part1-shqipe" role="tab" aria-controls="nav-part1-shqipe" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-shqipe" data-toggle="tab" href="#nav-part2-shqipe" role="tab" aria-controls="nav-part2-shqipe" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-shqipe" data-toggle="tab" href="#nav-part3-shqipe" role="tab" aria-controls="nav-part3-shqipe" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-shqipe" data-toggle="tab" href="#nav-part4-shqipe" role="tab" aria-controls="nav-part4-shqipe" aria-selected="false">Part 4</a>
+                            <a class="nav-item nav-link" id="nav-part5-tab-shqipe" data-toggle="tab" href="#nav-part5-shqipe" role="tab" aria-controls="nav-part5-shqipe" aria-selected="false">Part 5</a>
+                            <a class="nav-item nav-link" id="nav-part6-tab-shqipe" data-toggle="tab" href="#nav-part6-shqipe" role="tab" aria-controls="nav-part6-shqipe" aria-selected="false">Part 6</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-shqipe" role="tabpanel" aria-labelledby="nav-part1-tab-shqipe">
+                                <h4>Suli An</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-shqipe" role="tabpanel" aria-labelledby="nav-part2-tab-shqipe">
+                                <h4>Childrens, Prejudices &amp; Lions</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-shqipe" role="tabpanel" aria-labelledby="nav-part3-tab-shqipe">
+                                <h4>Fine Arts Faculty</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-shqipe" role="tabpanel" aria-labelledby="nav-part4-tab-shqipe">
+                                <h4>Graphic arts in Macedonia</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part5-shqipe" role="tabpanel" aria-labelledby="nav-part5-tab-shqipe">
+                                <h4>Women in Balkans</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe5.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part6-shqipe" role="tabpanel" aria-labelledby="nav-part6-tab-shqipe">
+                                <h4>Something has to happen</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/shqipe/shqipe6.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselShqipe" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselShqipe" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="1"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="2"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="3"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="4"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="5"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="6"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="7"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="8"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="9"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="10"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="11"></li>
+                            <li data-target="#carouselShqipe" data-slide-to="12"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/shqipe/sq1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq10.JPG" alt="Tenth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq11.JPG" alt="Eleventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq12.JPG" alt="Twelveth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/shqipe/sq13.JPG" alt="Thirteenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselShqipe" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselShqipe" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Dimitar -->
+    <div id="modalDimitar" class="modal fade" role="dialog" aria-labelledby="infoDimitar">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoDimitar">Dimitar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-dimitar" data-toggle="tab" href="#nav-part1-dimitar" role="tab" aria-controls="nav-part1-dimitar" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-dimitar" data-toggle="tab" href="#nav-part2-dimitar" role="tab" aria-controls="nav-part2-dimitar" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-dimitar" data-toggle="tab" href="#nav-part3-dimitar" role="tab" aria-controls="nav-part3-dimitar" aria-selected="false">Part 3</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-dimitar" role="tabpanel" aria-labelledby="nav-part1-tab-dimitar">
+                                <h4>Park of Lakes</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/dimitar/dimitar1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-dimitar" role="tabpanel" aria-labelledby="nav-part2-tab-dimitar">
+                                <h4>Health, nightlife and pollution</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/dimitar/dimitar2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-dimitar" role="tabpanel" aria-labelledby="nav-part3-tab-dimitar">
+                                <h4>Our Disneyland</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/dimitar/dimitar3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselDimitar" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselDimitar" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="1"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="2"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="3"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="4"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="5"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="6"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="7"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="8"></li>
+                            <li data-target="#carouselDimitar" data-slide-to="9"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/dimitar/d1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/dimitar/d10.JPG" alt="Tenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselDimitar" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselDimitar" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Goran -->
+    <div id="modalGoran" class="modal fade" role="dialog" aria-labelledby="infoGoran">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoGoran">Goran</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-goran" data-toggle="tab" href="#nav-part1-goran" role="tab" aria-controls="nav-part1-goran" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-goran" data-toggle="tab" href="#nav-part2-goran" role="tab" aria-controls="nav-part2-goran" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-goran" data-toggle="tab" href="#nav-part3-goran" role="tab" aria-controls="nav-part3-goran" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-goran" data-toggle="tab" href="#nav-part4-goran" role="tab" aria-controls="nav-part4-goran" aria-selected="false">Part 4</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-goran" role="tabpanel" aria-labelledby="nav-part1-tab-goran">
+                                <h4>Alexander Palace Restaurant</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/goran/goran1.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/goran/g1en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/goran/g1frvtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/goran/g1mk.vtt">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-goran" role="tabpanel" aria-labelledby="nav-part2-tab-goran">
+                                <h4>Growing up</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/goran/goran2.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/goran/g2en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/goran/g2fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/goran/g2mk.vtt">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-goran" role="tabpanel" aria-labelledby="nav-part3-tab-goran">
+                                <h4>Rap and culture</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/goran/goran3.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/goran/g3en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/goran/g3fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/goran/g3mk.vtt">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-goran" role="tabpanel" aria-labelledby="nav-part4-tab-goran">
+                                <h4>Greener Macedonia</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/goran/goran4.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/goran/g4en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="skopje/goran/g4fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="skopje/goran/g4mk.vtt">
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitles available in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselGoran" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselGoran" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselGoran" data-slide-to="1"></li>
+                            <li data-target="#carouselGoran" data-slide-to="2"></li>
+                            <li data-target="#carouselGoran" data-slide-to="3"></li>
+                            <li data-target="#carouselGoran" data-slide-to="4"></li>
+                            <li data-target="#carouselGoran" data-slide-to="5"></li>
+                            <li data-target="#carouselGoran" data-slide-to="6"></li>
+                            <li data-target="#carouselGoran" data-slide-to="7"></li>
+                            <li data-target="#carouselGoran" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/goran/g1.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g2.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g3.jpg" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g4.jpg" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g5.jpg" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g6.jpg" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g7.jpg" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g8.jpg" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/goran/g9.jpg" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselGoran" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselGoran" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Gordana & Igor -->
+    <div id="modalGordanaIgor" class="modal fade" role="dialog" aria-labelledby="infoGordanaIgor">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoGordanaIgor">Gordana &amp; Igor</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-gordanaigor" data-toggle="tab" href="#nav-part1-gordanaigor" role="tab" aria-controls="nav-part1-gordanaigor" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-gordanaigor" data-toggle="tab" href="#nav-part2-gordanaigor" role="tab" aria-controls="nav-part2-gordanaigor" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-gordanaigor" data-toggle="tab" href="#nav-part3-gordanaigor" role="tab" aria-controls="nav-part3-gordanaigor" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-gordanaigor" data-toggle="tab" href="#nav-part4-gordanaigor" role="tab" aria-controls="nav-part4-gordanaigor" aria-selected="false">Part 4</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-gordanaigor" role="tabpanel" aria-labelledby="nav-part1-tab-gordanaigor">
+                                <h4>Kapan An</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/gordanaigor/gordanaigor1.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/gordanaigor/gi1en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-gordanaigor" role="tabpanel" aria-labelledby="nav-part2-tab-gordanaigor">
+                                <h4>Machiavel and prejudices</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/gordanaigor/gordanaigor2.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/gordanaigor/gi2en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-gordanaigor" role="tabpanel" aria-labelledby="nav-part3-tab-gordanaigor">
+                                <h4>The candy man</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/gordanaigor/gordanaigor3.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/gordanaigor/gi3en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-gordanaigor" role="tabpanel" aria-labelledby="nav-part4-tab-gordanaigor">
+                                <h4>Living now</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/gordanaigor/gordanaigor4.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/gordanaigor/gi4en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitles available in EN. Upcoming subtitles in MK and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselGordanaIgor" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselGordanaIgor" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="1"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="2"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="3"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="4"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="5"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="6"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="7"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="8"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="9"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="10"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="11"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="12"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="13"></li>
+                            <li data-target="#carouselGordanaIgor" data-slide-to="14"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi1.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi2.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi3.jpg" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi4.jpg" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi5.jpg" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi6.jpg" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi7.jpg" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi8.jpg" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi9.jpg" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi10.jpg" alt="Tenth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi11.jpg" alt="Eleventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi12.jpg" alt="Twelveth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi13.jpg" alt="Thirtheenth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi14.jpg" alt="Fourtheenth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/gordanaigor/gi15.jpg" alt="Fifteenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselGordanaIgor" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselGordanaIgor" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Lemi -->
+    <div id="modalLemi" class="modal fade" role="dialog" aria-labelledby="infoLemi">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoLemi">Lemi</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-lemi" data-toggle="tab" href="#nav-part1-lemi" role="tab" aria-controls="nav-part1-lemi" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-lemi" data-toggle="tab" href="#nav-part2-lemi" role="tab" aria-controls="nav-part2-lemi" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-lemi" data-toggle="tab" href="#nav-part3-lemi" role="tab" aria-controls="nav-part3-lemi" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-lemi" data-toggle="tab" href="#nav-part4-lemi" role="tab" aria-controls="nav-part4-lemi" aria-selected="false">Part 4</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-lemi" role="tabpanel" aria-labelledby="nav-part1-tab-lemi">
+                                <h4>Rekord hostel</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/lemi/lemi1.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/lemi/lemi1en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-lemi" role="tabpanel" aria-labelledby="nav-part2-tab-lemi">
+                                <h4>Skopje 2014</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/lemi/lemi2.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/lemi/lemi2en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-lemi" role="tabpanel" aria-labelledby="nav-part3-tab-lemi">
+                                <h4>Host and Desire</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/lemi/lemi3.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/lemi/lemi3en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-lemi" role="tabpanel" aria-labelledby="nav-part4-tab-lemi">
+                                <h4>From Yougoslavia with love</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/lemi/lemi4.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="skopje/lemi/lemi4en.vtt">
+                                   <!-- <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitle available in EN. Upcoming subtitles in MK and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselLemi" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselLemi" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselLemi" data-slide-to="1"></li>
+                            <li data-target="#carouselLemi" data-slide-to="2"></li>
+                            <li data-target="#carouselLemi" data-slide-to="3"></li>
+                            <li data-target="#carouselLemi" data-slide-to="4"></li>
+                            <li data-target="#carouselLemi" data-slide-to="5"></li>
+                            <li data-target="#carouselLemi" data-slide-to="6"></li>
+                            <li data-target="#carouselLemi" data-slide-to="7"></li>
+                            <li data-target="#carouselLemi" data-slide-to="8"></li>
+                            <li data-target="#carouselLemi" data-slide-to="9"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/lemi/l1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/lemi/l10.JPG" alt="Tenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselLemi" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselLemi" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Sandra
+    <div id="modalSandra" class="modal fade" role="dialog" aria-labelledby="infoSandra">
+        <div class="modal-dialog modal-lg" role="document">
+            Modal content
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoSandra">Sandra</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        Audio
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-sandra" data-toggle="tab" href="#nav-part1-sandra" role="tab" aria-controls="nav-part1-sandra" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-sandra" data-toggle="tab" href="#nav-part2-sandra" role="tab" aria-controls="nav-part2-sandra" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-sandra" data-toggle="tab" href="#nav-part3-sandra" role="tab" aria-controls="nav-part3-sandra" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-sandra" data-toggle="tab" href="#nav-part4-sandra" role="tab" aria-controls="nav-part4-sandra" aria-selected="false">Part 4</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-sandra" role="tabpanel" aria-labelledby="nav-part1-tab-sandra">
+                                <h4>Matka canyon</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/sandra/sandra1.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-sandra" role="tabpanel" aria-labelledby="nav-part2-tab-sandra">
+                                <h4>Family picnic</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/sandra/sandra2.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-sandra" role="tabpanel" aria-labelledby="nav-part3-tab-sandra">
+                                <h4>Invest in our country</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/sandra/sandra3.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="">
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-sandra" role="tabpanel" aria-labelledby="nav-part4-tab-sandra">
+                                <h4>Law, respect and opportunity</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/sandra/sandra4.mp3">
+                                   <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="">
+                                </video>
+                            </div>
+                        </div>
+                        Presentation text
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+    
+                    </div>
+                    Carousel
+                    <div id="carouselSandra" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselSandra" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselSandra" data-slide-to="1"></li>
+                            <li data-target="#carouselSandra" data-slide-to="2"></li>
+                            <li data-target="#carouselSandra" data-slide-to="3"></li>
+                            <li data-target="#carouselSandra" data-slide-to="4"></li>
+                            <li data-target="#carouselSandra" data-slide-to="5"></li>
+                            <li data-target="#carouselSandra" data-slide-to="6"></li>
+                            <li data-target="#carouselSandra" data-slide-to="7"></li>
+                            <li data-target="#carouselSandra" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/sandra/s1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/sandra/s9.JPG" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselSandra" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselSandra" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Modal Blazhen -->
+    <div id="modalBlazhen" class="modal fade" role="dialog" aria-labelledby="infoBlazhen">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoBlazhen">BLAZHEN</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-blazhen" data-toggle="tab" href="#nav-part1-blazhen" role="tab" aria-controls="nav-part1-blazhen" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-blazhen" data-toggle="tab" href="#nav-part2-blazhen" role="tab" aria-controls="nav-part2-blazhen" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-blazhen" data-toggle="tab" href="#nav-part3-blazhen" role="tab" aria-controls="nav-part3-blazhen" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-blazhen" data-toggle="tab" href="#nav-part4-blazhen" role="tab" aria-controls="nav-part4-blazhen" aria-selected="false">Part 4</a>
+                            <a class="nav-item nav-link" id="nav-part5-tab-blazhen" data-toggle="tab" href="#nav-part5-blazhen" role="tab" aria-controls="nav-part5-blazhen" aria-selected="false">Part 5</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-blazhen" role="tabpanel" aria-labelledby="nav-part1-tab-blazhen">
+                                <h4>Terrace of the Museum of Contemporary Art</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/blazhen/blazhen1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-blazhen" role="tabpanel" aria-labelledby="nav-part2-tab-blazhen">
+                                <h4>Oveview on Skopje changes</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/blazhen/blazhen2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-blazhen" role="tabpanel" aria-labelledby="nav-part3-tab-blazhen">
+                                <h4>National Youth Council</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/blazhen/blazhen3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-blazhen" role="tabpanel" aria-labelledby="nav-part4-tab-blazhen">
+                                <h4>Open town</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/blazhen/blazhen4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part5-blazhen" role="tabpanel" aria-labelledby="nav-part5-tab-blazhen">
+                                <h4> Changes are possible - to stay or to go ?</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="skopje/blazhen/blazhen5.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselBlazhen" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselBlazhen" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="1"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="2"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="3"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="4"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="5"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="6"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="7"></li>
+                            <li data-target="#carouselBlazhen" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="skopje/blazhen/b1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="skopje/blazhen/b9.JPG" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselBlazhen" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselBlazhen" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Aneta -->
+    <div id="modalAneta" class="modal fade" role="dialog" aria-labelledby="infoAneta">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoAneta">ANETA</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-aneta" data-toggle="tab" href="#nav-part1-aneta" role="tab" aria-controls="nav-part1-aneta" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-aneta" data-toggle="tab" href="#nav-part2-aneta" role="tab" aria-controls="nav-part2-aneta" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-aneta" data-toggle="tab" href="#nav-part3-aneta" role="tab" aria-controls="nav-part3-aneta" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-aneta" data-toggle="tab" href="#nav-part4-aneta" role="tab" aria-controls="nav-part4-aneta" aria-selected="false">Part 4</a>
+                            <a class="nav-item nav-link" id="nav-part5-tab-aneta" data-toggle="tab" href="#nav-part5-aneta" role="tab" aria-controls="nav-part5-aneta" aria-selected="false">Part 5</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-aneta" role="tabpanel" aria-labelledby="nav-part1-tab-aneta">
+                                <h4>Doors club</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aneta/aneta1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-aneta" role="tabpanel" aria-labelledby="nav-part2-tab-aneta">
+                                <h4>Local bands</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aneta/aneta2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-aneta" role="tabpanel" aria-labelledby="nav-part3-tab-aneta">
+                                <h4>An open bar for travelling</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aneta/aneta3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-aneta" role="tabpanel" aria-labelledby="nav-part4-tab-aneta">
+                                <h4>Public computer place</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aneta/aneta4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part5-aneta" role="tabpanel" aria-labelledby="nav-part5-tab-aneta">
+                                <h4>To teach and be thaught</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aneta/aneta5.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselAneta" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselAneta" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselAneta" data-slide-to="1"></li>
+                            <li data-target="#carouselAneta" data-slide-to="2"></li>
+                            <li data-target="#carouselAneta" data-slide-to="3"></li>
+                            <li data-target="#carouselAneta" data-slide-to="4"></li>
+                            <li data-target="#carouselAneta" data-slide-to="5"></li>
+                            <li data-target="#carouselAneta" data-slide-to="6"></li>
+                            <li data-target="#carouselAneta" data-slide-to="7"></li>
+                            <li data-target="#carouselAneta" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aneta/ak9.JPG" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselAneta" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselAneta" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Aleksander -->
+    <div id="modalAleksander" class="modal fade" role="dialog" aria-labelledby="infoAleksander">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoAleksander">ALEKSANDER</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-aleksander" data-toggle="tab" href="#nav-part1-aleksander" role="tab" aria-controls="nav-part1-aleksander" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-aleksander" data-toggle="tab" href="#nav-part2-aleksander" role="tab" aria-controls="nav-part2-aleksander" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-aleksander" data-toggle="tab" href="#nav-part3-aleksander" role="tab" aria-controls="nav-part3-aleksander" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-aleksander" data-toggle="tab" href="#nav-part4-aleksander" role="tab" aria-controls="nav-part4-aleksander" aria-selected="false">Part 4</a>
+                            <a class="nav-item nav-link" id="nav-part5-tab-aleksander" data-toggle="tab" href="#nav-part5-aleksander" role="tab" aria-controls="nav-part5-aleksander" aria-selected="false">Part 5</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-aleksander" role="tabpanel" aria-labelledby="nav-part1-tab-aleksander">
+                                <h4>Kickboxing club Budo Kavadarci</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aleksander/alexander1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-aleksander" role="tabpanel" aria-labelledby="nav-part2-tab-aleksander">
+                                <h4>Place and peoples</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aleksander/alexander2.mp3">
+                                  <!--  <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-aleksander" role="tabpanel" aria-labelledby="nav-part3-tab-aleksander">
+                                <h4>Sport in Kavadarci</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aleksander/alexander3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-aleksander" role="tabpanel" aria-labelledby="nav-part4-tab-aleksander">
+                                <h4>More than just a second home</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aleksander/alexander4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part5-aleksander" role="tabpanel" aria-labelledby="nav-part5-tab-aleksander">
+                                <h4>Improve sport level for all</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="kavadarci/aleksander/alexander5.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselAleksander" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselAleksander" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="1"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="2"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="3"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="4"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="5"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="6"></li>
+                            <li data-target="#carouselAleksander" data-slide-to="7"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a5.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a6.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a7.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a8.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="kavadarci/aleksander/a9.JPG" alt="Eighth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselAleksander" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselAleksander" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Marija -->
+    <div id="modalMarija" class="modal fade" role="dialog" aria-labelledby="infoMarija">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoMarija">MARIJA</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-marija" data-toggle="tab" href="#nav-part1-marija" role="tab" aria-controls="nav-part1-marija" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-marija" data-toggle="tab" href="#nav-part2-marija" role="tab" aria-controls="nav-part2-marija" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-marija" data-toggle="tab" href="#nav-part3-marija" role="tab" aria-controls="nav-part3-marija" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-marija" data-toggle="tab" href="#nav-part4-marija" role="tab" aria-controls="nav-part4-marija" aria-selected="false">Bonus part</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-marija" role="tabpanel" aria-labelledby="nav-part1-tab-marija">
+                                <h4>Suitlak</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/marija/marija1.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/marija/marija1en.vtt">
+<!--                                   <track label="French" kind="subtitles" srclang="fr" src="">-->
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/marija/marija1mk.vtt"> 
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-marija" role="tabpanel" aria-labelledby="nav-part2-tab-marija">
+                                <h4>No difference between people</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/marija/marija2.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/marija/marija2en.vtt">
+<!--                                   <track label="French" kind="subtitles" srclang="fr" src="">-->
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/marija/marija2mk.vtt"> 
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-marija" role="tabpanel" aria-labelledby="nav-part3-tab-marija">
+                                <h4>Open green spaces and unity</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/marija/marija3.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/marija/marija3en.vtt">
+<!--                                   <track label="French" kind="subtitles" srclang="fr" src="">-->
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/marija/marija3mk.vtt"> 
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-marija" role="tabpanel" aria-labelledby="nav-part4-tab-marija">
+                                <h4>Bonus: Apple pie recipe</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/marija/marija4.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/marija/marija4en.vtt">
+<!--                                   <track label="French" kind="subtitles" srclang="fr" src="">-->
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/marija/marija4mk.vtt"> 
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitles available in MK and EN. Upcoming subtitles in FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselMarija" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselMarija" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselMarija" data-slide-to="1"></li>
+                            <li data-target="#carouselMarija" data-slide-to="2"></li>
+                            <li data-target="#carouselMarija" data-slide-to="3"></li>
+                            <li data-target="#carouselMarija" data-slide-to="4"></li>
+                            <li data-target="#carouselMarija" data-slide-to="5"></li>
+                            <li data-target="#carouselMarija" data-slide-to="6"></li>
+                            <li data-target="#carouselMarija" data-slide-to="7"></li>
+                            <li data-target="#carouselMarija" data-slide-to="8"></li>
+                            <li data-target="#carouselMarija" data-slide-to="9"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="stip/marija/m1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/marija/m10.JPG" alt="Tenth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselMarija" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselMarija" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Anica -->
+    <div id="modalAnica" class="modal fade" role="dialog" aria-labelledby="infoAnica">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoAnica">ANICA</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-anica" data-toggle="tab" href="#nav-part1-anica" role="tab" aria-controls="nav-part1-anica" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-anica" data-toggle="tab" href="#nav-part2-anica" role="tab" aria-controls="nav-part2-anica" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-anica" data-toggle="tab" href="#nav-part3-anica" role="tab" aria-controls="nav-part3-anica" aria-selected="false">Part 3</a>
+                            <a class="nav-item nav-link" id="nav-part4-tab-anica" data-toggle="tab" href="#nav-part4-anica" role="tab" aria-controls="nav-part4-anica" aria-selected="false">Part 4</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-anica" role="tabpanel" aria-labelledby="nav-part1-tab-anica">
+                                <h4>Issar fortress</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/anica/anica1.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-anica" role="tabpanel" aria-labelledby="nav-part2-tab-anica">
+                                <h4>A place to clear your mind</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/anica/anica2.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-anica" role="tabpanel" aria-labelledby="nav-part3-tab-anica">
+                                <h4>Social work &amp; volunteering</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/anica/anica3.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part4-anica" role="tabpanel" aria-labelledby="nav-part4-tab-anica">
+                                <h4>The past glory</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/anica/anica4.mp3">
+                                   <!-- <track label="English" kind="subtitles" srclang="en" src="">
+                                   <track label="French" kind="subtitles" srclang="fr" src="">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src=""> -->
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Upcoming subtitles in MK, EN and FR.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselAnica" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselAnica" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselAnica" data-slide-to="1"></li>
+                            <li data-target="#carouselMarija" data-slide-to="2"></li>
+                            <li data-target="#carouselMarija" data-slide-to="3"></li>
+                            <li data-target="#carouselMarija" data-slide-to="4"></li>
+                            <li data-target="#carouselMarija" data-slide-to="5"></li>
+                            <li data-target="#carouselMarija" data-slide-to="6"></li>
+                            <li data-target="#carouselMarija" data-slide-to="7"></li>
+                            <li data-target="#carouselMarija" data-slide-to="8"></li>
+                            <li data-target="#carouselMarija" data-slide-to="9"></li>
+                            <li data-target="#carouselMarija" data-slide-to="10"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="stip/anica/an1.JPG" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an2.JPG" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an3.JPG" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an4.JPG" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an5.JPG" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an6.JPG" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an7.JPG" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an8.JPG" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an9.JPG" alt="Nineth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an10.JPG" alt="Tenth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/anica/an11.JPG" alt="Eleventh slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselAnica" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselAnica" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Riste -->
+    <div id="modalRiste" class="modal fade" role="dialog" aria-labelledby="infoRiste">
+        <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoRiste">RISTE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <!-- Audio -->
+                        <nav class="nav nav-tabs col-12" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-part1-tab-riste" data-toggle="tab" href="#nav-part1-riste" role="tab" aria-controls="nav-part1-riste" aria-selected="true">Part 1</a>
+                            <a class="nav-item nav-link" id="nav-part2-tab-riste" data-toggle="tab" href="#nav-part2-riste" role="tab" aria-controls="nav-part2-riste" aria-selected="false">Part 2</a>
+                            <a class="nav-item nav-link" id="nav-part3-tab-riste" data-toggle="tab" href="#nav-part3-riste" role="tab" aria-controls="nav-part3-riste" aria-selected="false">Part 3</a>
+                        </nav>
+                        <div class="tab-content col-12">
+                            <div class="tab-pane fade show active" id="nav-part1-riste" role="tabpanel" aria-labelledby="nav-part1-tab-riste">
+                                <h4>Topolki / Riverside</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/riste/riste1.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/riste/riste1en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="stip/riste/riste1fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/riste/riste1mk.vtt"> 
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part2-riste" role="tabpanel" aria-labelledby="nav-part2-tab-riste">
+                                <h4>A sport nation</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/riste/riste2.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/riste/riste2en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="stip/riste/riste2fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/riste/riste2mk.vtt"> 
+                                </video>
+                            </div>
+                            <div class="tab-pane fade" id="nav-part3-riste" role="tabpanel" aria-labelledby="nav-part3-tab-riste">
+                                <h4>A modern state</h4>
+                                <video controls controlsList="nodownload" preload="none">
+                                   <source type="audio/mp3" src="stip/riste/riste3.mp3">
+                                    <track label="English" kind="subtitles" srclang="en" src="stip/riste/riste3en.vtt">
+                                   <track label="French" kind="subtitles" srclang="fr" src="stip/riste/riste3fr.vtt">
+                                   <track label="Macedonian" kind="subtitles" srclang="mk" src="stip/riste/riste3mk.vtt"> 
+                                </video>
+                            </div>
+                        </div>
+                        <!-- Presentation text -->
+                        <div class="col-12 text-justify">
+                            <p>Subtitles avaible in MK, FR and EN.</p>
+                        </div>
+
+                    </div>
+                    <!-- Carousel -->
+                    <div id="carouselRiste" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselRiste" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselRiste" data-slide-to="1"></li>
+                            <li data-target="#carouselRiste" data-slide-to="2"></li>
+                            <li data-target="#carouselRiste" data-slide-to="3"></li>
+                            <li data-target="#carouselRiste" data-slide-to="4"></li>
+                            <li data-target="#carouselRiste" data-slide-to="5"></li>
+                            <li data-target="#carouselRiste" data-slide-to="6"></li>
+                            <li data-target="#carouselRiste" data-slide-to="7"></li>
+                            <li data-target="#carouselRiste" data-slide-to="8"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="stip/riste/r1.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r2.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r3.jpg" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r4.jpg" alt="Fourth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r5.jpg" alt="Fifth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r6.jpg" alt="Sixth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r7.jpg" alt="Seventh slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r8.jpg" alt="Eighth slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="stip/riste/r9.jpg" alt="Nineth slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselRiste" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                        <a class="carousel-control-next" href="#carouselRiste" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ALL VISIBLE CONTENT -->
+    <div class="container-fluid">
+        <!-- Top title -->
+        <div class="row justify-content-center" id="titlePom">
+            <h1>Portraits of Macedonia</h1>
+        </div>
+        <!-- Top buttons-->
+        <div class="row justify-content-center text-center" id="topbuttons">
+            <div class="col-sm-6 row justify-content-between">
+                <a data-toggle="modal" data-target="#modalInfo">Project</a>
+                <a id="skopje">Skopje</a>
+                <a id="kavadarci">Kavadarci</a>
+                <a id="stip">Štip</a>
+                <a data-toggle="modal" data-target="#modalParticipate">Participate</a>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="row" id="listAndMap">
+            <!-- Left Menu -->
+            <div class="col-sm-2 leftmenu hidden-xs container maxheight">
+                <!--
+               <div id="iconsleftmenu">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                     <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                    <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
+               </div>
+-->
+                <div class="row text-center list">
+                    <div class="col-12"><a href="#" id="volhanbtn"><span class="people">Volhan</span><p>Skate park</p></a></div>
+                    <div class="col-12"><a href="#" id="eleonorabtn"><span class="people">Eleonora</span><p>Gallery 7</p></a></div>
+                    <div class="col-12"><a href="#" id="robertbtn"><span class="people">Robert</span><p>St Spas church</p></a></div>
+                    <div class="col-12"><a href="#" id="shqipebtn"><span class="people">Shqipe</span><p>Sulin An</p></a></div>
+                    <div class="col-12"><a href="#" id="dimitarbtn"><span class="people">Dimitar</span><p>Park of Lakes</p></a></div>
+                    <div class="col-12"><a href="#" id="goranbtn"><span class="people">Goran</span><p>Alexander Palace Restaurant</p></a></div>
+                    <div class="col-12"><a href="#" id="gordanaigorbtn"><span class="people">Gordana &amp; Igor</span><p>Kapan An</p></a></div>
+                    <div class="col-12"><a href="#" id="lemibtn"><span class="people">Lemi</span><p>Rekord Hostel</p></a></div>
+<!--                    <div class="col-12"><a href="#" id="sandrabtn"><span class="people">Sandra</span><p>Matka canyon</p></a></div>-->
+                    <div class="col-12"><a href="#" id="blazhenbtn"><span class="people">Blazhen</span><p>Terrace of the Museum of Contemporary Art</p></a></div>
+                    <div class="col-12"><a href="#" id="anetabtn"><span class="people">Aneta</span><p>Doors club</p></a></div>
+                    <div class="col-12"><a href="#" id="aleksanderbtn"><span class="people">Aleksander</span><p>Kickboxing club</p></a></div>
+                    <div class="col-12"><a href="#" id="marijabtn"><span class="people">Marija</span><p>Suitlak</p></a></div>
+                    <div class="col-12"><a href="#" id="ristebtn"><span class="people">Riste</span><p>Topolki / Riverside</p></a></div>
+                    <div class="col-12"><a href="#" id="anicabtn"><span class="people">Anica</span><p>Isar fortress</p></a></div>
+                </div>
+            </div>
+            <!-- MAP -->
+            <div class="col-sm-10" id="map"></div>
+        </div>
+    </div>
+    <!-- Overlay for smartphone viewer -->
+    <div id="myNav" class="overlay">
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <p>View this webpage on a computer <i class="em em-computer"></i></p>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+    <!-- Leaflet Cluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- jQuery Flip -->
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+
+</html>
