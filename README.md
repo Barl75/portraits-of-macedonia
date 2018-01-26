@@ -7,4 +7,5 @@ Next steps:
 - Make it available on smartphones;
 - Add the possibility of geo-tracking;
 - Add a map layer to add new participation;
+- Add templating engines + JSON object with data to use template html for the modal
 ...
